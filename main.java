@@ -12,11 +12,11 @@ class Main {
   
   // Void method:
   public static void main(String[] args) {
+    
+    Calculation sphere = new Calculation(10);
+    sphere.calculateVelocity();
+    sphere.printVelocity();
 
-    NetForce sphere = new NetForce(60,10);
-    sphere.calculation();
-    sphere.printVelocities();
-    // System.out.println(sphere.size());
   }
         
 }
