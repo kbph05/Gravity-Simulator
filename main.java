@@ -16,7 +16,10 @@ class Main {
     Calculation sphere = new Calculation(60, 10);
     sphere.calculateVelocity();
     sphere.printVelocity();
+
     Canvas canvas = new Canvas();
+    canvas.menu();
+    
   }
         
 }

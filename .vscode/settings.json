@@ -1,0 +1,15 @@
+{
+    "java.project.referencedLibraries": [],
+
+    
+    "type": "java",
+    "request": "launch",
+    "name": "Launch JavaFX",
+    "mainClass": "Main",
+    "vmArgs": "--module-path Users/Downloads/javafx-sdk-23.0.2/lib --add-modules javafx.controls,javafx.fxml",
+    "java.project.sourcePaths": [
+        "."
+    ]
+    
+    
+}
