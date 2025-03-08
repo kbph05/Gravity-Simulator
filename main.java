@@ -17,8 +17,8 @@ class Main {
     sphere.calculateVelocity();
     sphere.printVelocity();
 
-    Canvas canvas = new Canvas();
-    canvas.menu();
+    Frame frame = new Frame();
+    frame.menu();
     
   }
         
