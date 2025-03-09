@@ -6,27 +6,46 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.ImageIcon;
+import javax.swing.*;
+import java.awt.Color;
+import javax.swing.border.LineBorder;
 
 
 class Frame {
 
+    // Private variables:
     private JFrame frame = new JFrame("Gravity-Simulator"); // new frame
 
+    // Private methods:
+    private JLabel newLabel(String text) {
+        JLabel label = new JLabel(text); // create label
+        label.setHorizontalAlignment(JLabel.CENTER);
+        label.setVerticalAlignment(JLabel.CENTER);
+        return label;
+    };
+
+    // private JButton Button(String text) {
+    //     JButton button = new JButton(text); // create button
+    //     button.setVerticalAlignment(JButton.CENTER);
+    //     button.setHorizontalAlignment(JButton.CENTER);
+    //     return button;
+    // };
+
+    
     public Frame() {
         frame.setSize(700,500); // set frame size
         frame.setLayout(new FlowLayout()); // set layout of frame
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // exit command
     }
 
-    public void menu() {
+    // Methods for UI background:
+    public void menuPage() {
         
         // new borderlayout with size
         JPanel panel = new JPanel();
 
-        JLabel label = new JLabel("Gravity Simulation"); // create label
-        label.setHorizontalAlignment(JLabel.CENTER);
-        label.setVerticalAlignment(JLabel.CENTER);
-        panel.add(label);
+        panel.add(newLabel("Gravity Simulator"));
 
         JButton startButton = new JButton("Start");
         startButton.setVerticalAlignment(JButton.CENTER);
@@ -41,7 +60,7 @@ class Frame {
             // This method can only be called when actionPerformed
             public void actionPerformed(ActionEvent e) {
                 panel.setVisible(false);
-                simulator();
+                simulatorPage();
             }
         }
         ); 
@@ -49,7 +68,7 @@ class Frame {
 
     }
 
-    public void simulator() {
+    public void simulatorPage() {
 
         JPanel panel = new JPanel();
 
@@ -63,15 +82,8 @@ class Frame {
         settingsButton.setHorizontalAlignment(JButton.CENTER);
         panel.add(settingsButton);
 
-        JLabel label2 = new JLabel("Velocity = ");
-        label2.setVerticalAlignment(JLabel.CENTER);
-        label2.setHorizontalAlignment(JLabel.CENTER);
-        panel.add(label2);
-
-        JLabel label3 = new JLabel("Force = ");
-        label3.setVerticalAlignment(JLabel.CENTER);
-        label3.setHorizontalAlignment(JLabel.CENTER);
-        panel.add(label3);
+        panel.add(newLabel("Velocity ="));
+        panel.add(newLabel("Force = "));
 
         frame.add(panel);
         frame.setVisible(true);
@@ -80,7 +92,7 @@ class Frame {
       
             public void actionPerformed(ActionEvent e) {
                 panel.setVisible(false);
-                menu();
+                menuPage();
             }
         }
         );
@@ -89,36 +101,26 @@ class Frame {
       
             public void actionPerformed(ActionEvent e) {
                 panel.setVisible(false);
-                settings();
+                settingsPage();
             }
         }
         );
 
     }
 
-    public void settings() {
+    public void settingsPage() {
         
         JPanel panel = new JPanel();
 
-        JLabel label = new JLabel("Settings");
-        label.setHorizontalAlignment(JLabel.CENTER);
-        label.setVerticalAlignment(JLabel.CENTER);
-        panel.add(label);
+        panel.add(newLabel("Settings"));
 
         JButton backButton = new JButton("Back");
         backButton.setVerticalAlignment(JButton.CENTER);
         backButton.setHorizontalAlignment(JButton.CENTER);
         panel.add(backButton);
 
-        JLabel gravityLabel = new JLabel("Acceleration of Gravity: ");
-        gravityLabel.setVerticalAlignment(JLabel.CENTER);
-        gravityLabel.setHorizontalAlignment(JLabel.CENTER);
-        panel.add(gravityLabel);
-
-        JLabel massLabel = new JLabel("Mass: ");
-        massLabel.setVerticalAlignment(JLabel.CENTER);
-        massLabel.setHorizontalAlignment(JLabel.CENTER);
-        panel.add(massLabel);
+        panel.add(newLabel("Acceleration of Gravity: "));
+        panel.add(newLabel("Initial Velocity: "));
 
         frame.add(panel);
         frame.setVisible(true);
@@ -127,11 +129,35 @@ class Frame {
       
             public void actionPerformed(ActionEvent e) {
                 panel.setVisible(false);
-                simulator();
+                simulatorPage();
             }
         }
         );
 
     }
+
+}
+
+class Simulator extends Frame {
+    
+    JFrame frame = new JFrame();
+
+    Simulator() {
+        frame.setSize(700,500);
+        frame.setLayout(new FlowLayout());
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    };
+
+    public void panel() {
+
+        JPanel panel = new JPanel();
+        panel.setBorder(new LineBorder(Color.blue));
+
+        frame.add(panel);
+        frame.setVisible(true);
+    };
+
+    public void drawObject() {};
+
 
 }

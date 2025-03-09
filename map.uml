@@ -1,0 +1,55 @@
+@startuml
+skinparam backgroundColor #F2F2F2
+
+
+class Frame {
+    JFrame frame
+    .. Private ..
+    - JLabel newLabel(String text)
+    .. Public ..
+    + void menuPage()
+    + void simulatorPage()
+    + void settingsPage()
+}
+
+class Simulator {
+    Simulator simulator
+    .. Private ..
+    .. Public ..
+    + void panel()
+    + void drawObject()
+}
+
+class Calculation {
+Calculation calculation(double mass, double height)
+.. Private ..
+    - double gravity
+    - double v_initial
+    - double m_height
+    - double m_mass
+    - double v_final
+.. Public ..
+    + void calculateVelocity()
+    + void printVelocity()
+    + void calculateForce()
+}
+
+class Main
+
+
+Frame <-- Simulator
+Main <-- Frame
+Simulator <-- Calculation
+Frame <-- Calculation
+
+'MenuPanel --* startButton
+'SimulatorPanel --* backButton
+'SimulatorPanel --* settingsButton
+'SettingsPanel --* backButton
+'
+'startButton --> SimulatorPanel
+'backButton --> MenuPanel
+'settingsButton --> SettingsPanel
+'backButton --> SimulatorPanel
+
+@enduml

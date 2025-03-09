@@ -18,7 +18,7 @@ class Main {
     sphere.printVelocity();
 
     Frame frame = new Frame();
-    frame.menu();
+    frame.menuPage();
     
   }
         

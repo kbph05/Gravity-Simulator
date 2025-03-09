@@ -1,5 +1,5 @@
 
-class Calculation {
+class Calculation extends Simulator {
 
     // Private variables
     private double gravity = 9.8;
