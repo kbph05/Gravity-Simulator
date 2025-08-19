@@ -1,5 +1,5 @@
 
-class Calculation extends Simulator {
+class Calculation {
 
     // Private variables
     private double gravity = 9.8;
@@ -8,6 +8,11 @@ class Calculation extends Simulator {
     private double m_mass;
     private double v_final;
 
+    public Calculation() {
+        m_height = 0;
+        m_mass = 0;
+        v_final = 0;
+    }
     public Calculation(double mass, double height) {
         m_height = height;
         m_mass = mass;
@@ -24,6 +29,10 @@ class Calculation extends Simulator {
     public double calculateForce() {
         double force = m_mass * gravity;
         return force;
+    }
+
+    public String getVelocity() {
+        return Double.toString(v_final);
     }
 
 }

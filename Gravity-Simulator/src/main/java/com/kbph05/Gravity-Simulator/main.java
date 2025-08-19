@@ -10,7 +10,7 @@ class Main {
     return answer;
   }
   
-  // Void method:
+  // Run method:
   public static void main(String[] args) {
 
     Calculation sphere = new Calculation(60, 10);

@@ -12,6 +12,8 @@ import java.awt.Color;
 import javax.swing.border.LineBorder;
 
 
+
+
 class Frame {
 
     // Private variables:
@@ -32,7 +34,6 @@ class Frame {
     //     return button;
     // };
 
-    
     public Frame() {
         frame.setSize(700,500); // set frame size
         frame.setLayout(new FlowLayout()); // set layout of frame
@@ -60,7 +61,8 @@ class Frame {
             // This method can only be called when actionPerformed
             public void actionPerformed(ActionEvent e) {
                 panel.setVisible(false);
-                simulatorPage();
+                Calculation calculation = new Calculation();
+                simulatorPage(calculation);
             }
         }
         ); 
@@ -68,8 +70,7 @@ class Frame {
 
     }
 
-    public void simulatorPage() {
-
+    public void simulatorPage(Calculation calculation) {
         JPanel panel = new JPanel();
 
         JButton backButton = new JButton("Back");
@@ -81,8 +82,10 @@ class Frame {
         settingsButton.setVerticalAlignment(JButton.CENTER);
         settingsButton.setHorizontalAlignment(JButton.CENTER);
         panel.add(settingsButton);
+        
 
         panel.add(newLabel("Velocity ="));
+        panel.add(newLabel(calculation.getVelocity())); // add the current initial velocity
         panel.add(newLabel("Force = "));
 
         frame.add(panel);
@@ -120,7 +123,11 @@ class Frame {
         panel.add(backButton);
 
         panel.add(newLabel("Acceleration of Gravity: "));
+        JScrollBar accelerationBar = new JScrollBar(JScrollBar.HORIZONTAL);
+        panel.add(accelerationBar);
         panel.add(newLabel("Initial Velocity: "));
+        JScrollBar initialVelocity = new JScrollBar(JScrollBar.HORIZONTAL);
+        panel.add(initialVelocity);
 
         frame.add(panel);
         frame.setVisible(true);
@@ -157,7 +164,9 @@ class Simulator extends Frame {
         frame.setVisible(true);
     };
 
-    public void drawObject() {};
+    public void drawObject() {
+
+    };
 
 
 }
